@@ -1,32 +1,39 @@
-package hello.core.Member;
+package hello.core.Order;
 
 import hello.core.AppConfig;
 import hello.core.member.Grade;
 import hello.core.member.Member;
 import hello.core.member.MemberService;
 import hello.core.member.MemberServiceImpl;
+import hello.core.order.Order;
+import hello.core.order.OrderService;
+import hello.core.order.OrderServiceImpl;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-
-public class MemberServieTest {
+public class OrderServiceTest {
 
     MemberService memberService;
+    OrderService orderService;
 
     @BeforeEach
     public void appConfig() {
         AppConfig appConfig = new AppConfig();
         memberService = appConfig.memberService();
+        orderService = appConfig.orderService();
     }
 
     @Test
-    void join(){
-        Member member = new Member(1L, "member", Grade.VIP);
+    void createOrder() {
 
+        Long memberId = 1L;
+        Member member = new Member(memberId, "MemberA", Grade.VIP);
         memberService.join(member);
-        Member findMember = memberService.findMember(1L);
 
-        Assertions.assertThat(member).isEqualTo(findMember);
+        Order order = orderService.createOrder(memberId, "itemA", 1000);
+
+        Assertions.assertThat(order.getDiscountPrice()).isEqualTo(1000);
+
     }
 }
