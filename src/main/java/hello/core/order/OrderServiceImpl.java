@@ -9,6 +9,9 @@ import hello.core.member.MemoryMemberRepository;
 
 public class OrderServiceImpl implements OrderService {
 
+    /**
+     * DIP 추상화에 의존하고 구체화에 의존하지 않는다.
+     */
     private final MemberRepository memberRepository;
     private final DiscountPolicy discountPolicy;
 
