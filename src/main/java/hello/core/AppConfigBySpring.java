@@ -19,16 +19,19 @@ public class AppConfigBySpring {
 
     @Bean
     public MemberService memberService() {
+        System.out.println("call AppConfigBySpring.memberService");
         return new MemberServiceImpl(memberRepository());
     }
 
     @Bean
     public MemberRepository memberRepository() {
+        System.out.println("call AppConfigBySpring.memberRepository");
         return new MemoryMemberRepository();
     }
 
     @Bean
     public OrderService orderService() {
+        System.out.println("call AppConfigBySpring.orderService");
         return new OrderServiceImpl(memberRepository(), discountPolicy());
     }
 
