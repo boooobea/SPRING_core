@@ -5,7 +5,6 @@ import hello.core.member.MemberService;
 import hello.core.member.MemberServiceImpl;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
-import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 public class AutoAppConfigTest {
@@ -15,7 +14,6 @@ public class AutoAppConfigTest {
         AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext(AutoAppConfig.class);
 
         MemberServiceImpl memberService = ac.getBean(MemberServiceImpl.class);
-        System.out.println(memberService);
         Assertions.assertThat(memberService).isInstanceOf(MemberService.class);
     }
 }
