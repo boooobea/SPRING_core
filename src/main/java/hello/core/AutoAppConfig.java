@@ -18,9 +18,10 @@ import org.springframework.context.annotation.FilterType;
 public class AutoAppConfig {
 
     // bean이 중복되어 충돌되었을 경우 수동이 자동을 엎어쓴다.
+    /*
     @Bean(name = "memoryMemberRepository")
     MemoryMemberRepository memoryMemberRepository() {
         return new MemoryMemberRepository();
     }
-    
+    */
 }

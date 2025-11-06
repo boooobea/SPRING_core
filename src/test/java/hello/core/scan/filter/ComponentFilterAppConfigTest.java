@@ -8,8 +8,6 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.FilterType;
 
-import java.io.FileFilter;
-
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.springframework.context.annotation.ComponentScan.*;
 
